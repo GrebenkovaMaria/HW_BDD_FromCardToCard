@@ -20,17 +20,17 @@ return randomSum;
 
     public static int getSumForTopUpSecondCard(){
         CardInfo cardInfoFirst = getFirstCard();
-        int balanceFirst = new DashboardPage().getCardBalance(cardInfoFirst);
+        int balanceFirst = new DashboardPage().getCardBalance(cardInfoFirst)+1;
         Faker faker = new Faker();
-        int randomSum = faker.random().nextInt(1, balanceFirst);
+        int randomSum = faker.random().nextInt(balanceFirst);
         return randomSum;
     }
 
     public static int getInvalidSumForTopUpFirstCard(){
         CardInfo cardInfoSecond = getSecondCard();
-        int balanceSecond = new DashboardPage().getCardBalance(cardInfoSecond);
+        int balanceSecond = new DashboardPage().getCardBalance(cardInfoSecond)+1;
         Faker faker = new Faker();
-        int randomSum = faker.random().nextInt(balanceSecond);
+        int randomSum = faker.random().nextInt(balanceSecond,1000000);
         return randomSum;
     }
 
@@ -38,7 +38,7 @@ return randomSum;
         CardInfo cardInfoFirst = getFirstCard();
         int balanceFirst = new DashboardPage().getCardBalance(cardInfoFirst);
         Faker faker = new Faker();
-        int randomSum = faker.random().nextInt(balanceFirst);
+        int randomSum = faker.random().nextInt(balanceFirst,1000000);
         return randomSum;
     }
     @Value
